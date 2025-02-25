@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Samir Hrlović - Premium vizit kartica">
+    <title>Samir Hrlović - Vizit Kartica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --whatsapp: #25D366;
+            --email: #dc2626;
+            --text: #f8fafc;
+            --linkedin: #0A66C2;
+            --shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top right, #e0e7ff, #c7d2fe);
+            padding: 20px;
+        }
+
+        .card {
+            width: 85mm;
+            height: 55mm;
+            background: linear-gradient(145deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 3mm;
+            padding: 24px;
+            position: relative;
+            box-shadow: var(--shadow);
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .details {
+            flex: 1;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .contact-item {
+            font-size: 9px;
+            margin: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(2px);
+            width: 100%;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(6px);
+        }
+
+        .whatsapp {
+            background: rgba(37, 211, 102, 0.2);
+        }
+
+        .email {
+            background: rgba(220, 38, 38, 0.2);
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .qr-code {
+            width: 70px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--text);
+            transition: transform 0.3s ease;
+        }
+
+        .user-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--text);
+            object-fit: cover;
+            object-position: top center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .geometric-pattern {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 40% 60% 70% 30%/50% 40% 60% 50%;
+            top: -30%;
+            right: -20%;
+            transform: rotate(35deg);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(35deg); }
+            50% { transform: translateY(-10px) rotate(40deg); }
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .user-photo:hover {
+            border-color: var(--whatsapp);
+            filter: brightness(1.1);
+        }
+
+        @media print {
+            .card {
+                background: linear-gradient(145deg, #2563eb 0%, #7c3aed 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="geometric-pattern"></div>
+        <div class="content">
+            <div class="details">
+                <div>
+                    <h1>Samir<br>Hrlović</h1>
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0a8.5 8.5 0 0 1 8.5 8.5c0 6.5-8.5 15.5-8.5 15.5S3.5 15 3.5 8.5A8.5 8.5 0 0 1 12 0zm0 4a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/>
+                        </svg>
+                        Sarajevo, Bosna i Hercegovina
+                    </div>
+                </div>
+
+                <div class="contact-items">
+                    <a href="https://wa.me/38761055255" class="contact-item whatsapp">
+                        <svg class="icon" viewBox="0 0 24 24" fill="#25D366">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        (+387)61-055-255
+                    </a>
+                    
+                    <a href="mailto:hrlovic.samir@gmail.com" class="contact-item email">
+                        <svg class="icon" viewBox="0 0 24 24" fill="#dc2626">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path fill="#fff" d="M12 11l8-5H4l8 5z"/>
+                        </svg>
+                        hrlovic.samir@gmail.com
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/samirhrlovic" target="_blank" class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24" fill="#0A66C2">
+                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8.19 18.84H5.35V9.47h2.84v9.37zM6.77 8.24a1.64 1.64 0 110-3.28 1.64 1.64 0 010 3.28zm12.07 10.6h-2.84v-4.52c0-1.07-.02-2.45-1.49-2.45-1.5 0-1.73 1.17-1.73 2.38v4.59h-2.84V9.47h2.73v1.28h.04c.38-.73 1.32-1.49 2.71-1.49 2.9 0 3.44 1.91 3.44 4.4v5.18z"/>
+                        </svg>
+                        LinkedIn profil
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://linkedin.com/in/samirhrlovic/&size=150x150&margin=12&color=2563eb&bgcolor=f8fafc" 
+                     class="qr-code" 
+                     alt="LinkedIn QR Code">
+                <img src="https://i.postimg.cc/t4g0Wb4h/Screenshot-2025-01-31-010812.png" 
+                     class="user-photo" 
+                     alt="Samir Hrlović">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
